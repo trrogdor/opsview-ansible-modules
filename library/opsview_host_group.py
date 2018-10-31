@@ -96,9 +96,9 @@ ARG_SPEC = {
     "token": {
         "no_log": True
     },
-    "verify_ssl": {
-        "default": True
-    },
+    #"verify_ssl": {
+    #    "default": True
+    #},
     "state": {
         "choices": [
             "updated",
@@ -132,7 +132,8 @@ MANAGER_OBJ_TYPE = 'hostgroups'
 # Additional parameters used to GET existing objects
 GET_PARAMS = {}
 # Fields which are part of the module but are not part of the object
-NON_OBJECT_FIELDS = ('username', 'password', 'token', 'endpoint', 'verify_ssl',
+#NON_OBJECT_FIELDS = ('username', 'password', 'token', 'endpoint', 'verify_ssl',
+NON_OBJECT_FIELDS = ('username', 'password', 'token', 'endpoint',
                      'object_id', 'state')
 
 
@@ -344,8 +345,8 @@ def main():
     ov_client = init_client(username=module.params['username'],
                             password=module.params['password'],
                             endpoint=module.params['endpoint'],
-                            token=module.params['token'],
-                            verify=module.params['verify_ssl'])
+                            token=module.params['token'])
+                            #verify=module.params['verify_ssl'])
 
     manager = get_config_manager(ov_client, MANAGER_OBJ_TYPE)
 

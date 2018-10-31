@@ -86,9 +86,9 @@ ARG_SPEC = {
     "username": {
         "required": True
     },
-    "verify_ssl": {
-        "default": True
-    },
+    #"verify_ssl": {
+    #    "default": True
+    #},
     "force": {
         "default": True,
         "type": "bool",
@@ -213,8 +213,8 @@ def main():
     ov_client = init_client(username=module.params['username'],
                             password=module.params['password'],
                             endpoint=module.params['endpoint'],
-                            token=module.params['token'],
-                            verify=module.params['verify_ssl'])
+                            token=module.params['token'])
+                            #verify=module.params['verify_ssl'])
 
     status = do_reload(ov_client)
     module.exit_json(**status)
